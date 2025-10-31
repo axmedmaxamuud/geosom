@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<img src="man/figures/logo.png" align="right" height="139" alt="" />
+
 # geosom
 
 <!-- badges: start -->
@@ -9,13 +11,10 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of geosom is R package for accessing Somalia geographic
-boundary and data by providing ready to use functions to obtain
+The goal of geosom package is to facilitate accessing Somalia geographic
+boundary and country data by providing ready to use functions to obtain
 administrative level boundaries that can be easily integrated with other
-tools for analysis and visualization.
-
-You can include your own data into the administrative boundaries and
-make your analysis and maps quickly.
+libraries for futher analysis and visualization.
 
 ## Installation
 
