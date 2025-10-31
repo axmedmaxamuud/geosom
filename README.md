@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# geosom
-
 <img src="man/figures/logo.png" align="right" height="139" alt="" />
+
+# geosom
 
 <!-- badges: start -->
 
