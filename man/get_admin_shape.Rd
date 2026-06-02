@@ -2,17 +2,26 @@
 % Please edit documentation in R/get_admin_shapes.R
 \name{get_admin_shape}
 \alias{get_admin_shape}
-\title{Load Administrative Shapes}
+\title{Load Somalia Administrative Boundary Data}
 \usage{
 get_admin_shape(level = c("admin0", "admin1", "admin2", "states"))
 }
 \arguments{
-\item{level}{specefiy which shapefile to load.
-and must be one of `"admin0", "admin1", admin2", "states"`}
+\item{level}{Character. Boundary level to load. Must be one of:
+\code{"admin0"}, \code{"admin1"}, \code{"admin2"}, or \code{"states"}.}
 }
 \value{
-An `sf` object containing spatial data
+An \code{sf} object containing Somalia boundary data.
 }
 \description{
-Load Administrative Shapes
+This function loads Somalia boundary datasets included in the \code{geosom} package.
+Available boundary levels include national boundary, administrative level 1,
+administrative level 2, and state boundaries.
+}
+\examples{
+som_admin1 <- get_admin_shape("admin1")
+head(som_admin1)
+
+som_districts <- get_admin_shape("admin2")
+plot(som_districts["admin2name"])
 }
