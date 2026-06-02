@@ -24,3 +24,24 @@ You can install the development version from Github:
 # install.packages("devtools")
 remotes::install_github("axmedmaxamuud/geosom")
 ```
+
+``` r
+
+library(geosom)
+library(ggplot2)
+
+somalia <- get_admin_shape(level = "admin1")
+
+
+ggplot(somalia) +
+  geom_sf(fill = "grey90", color = "white", linewidth = 0.35) +
+  coord_sf(expand = FALSE) +
+  labs(
+    title = "Administrative States of Somalia",
+    subtitle = "State-level administrative boundaries",
+    caption = "Source: geosom::get_admin_shape()"
+  ) +
+  geosom_theme()
+```
+
+<img src="man/figures/README-unnamed-chunk-2-1.png" alt="" width="100%" />
