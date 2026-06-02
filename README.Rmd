@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of geosom package is to facilitate accessing Somalia geographic boundary and country data by providing ready to use functions to obtain administrative level boundaries that can be easily integrated with other libraries for futher analysis and visualization.
+geosom is providing ready-to-use geographic boundary shapes and other country datasets in Somalia for easy spatial analysis and mapping workflows in R.
 
 ## Installation
 
@@ -31,16 +31,43 @@ You can install the development version from Github:
 # install.packages("devtools")
 remotes::install_github("axmedmaxamuud/geosom")
 ```
+## Available Layers
+
+```{r}
+library(geosom)
+library(ggplot2)
+library(dplyr)
+
+list_geosom_layers()
+```
+
+## Load administrative boundaries
+
+```{r}
+admin0 <- get_admin_shape("admin0")
+admin1 <- get_admin_shape("admin1")
+admin2 <- get_admin_shape("admin2")
+states <- get_admin_shape("states")
+```
+
+## Get administrative names
+
+```{r}
+head(get_admin_names("admin1"), 10)
+```
+
+```{r}
+head(get_admin_names("admin2"), 10)
+```
+
+## Basic map
 
 ```{r}
 
-library(geosom)
-library(ggplot2)
-
-somalia <- get_admin_shape(level = "admin1")
+admin1 <- get_admin_shape("admin1")
 
 
-ggplot(somalia) +
+ggplot(admin1) +
   geom_sf(fill = "grey90", color = "white", linewidth = 0.35) +
   coord_sf(expand = FALSE) +
   labs(
@@ -50,15 +77,19 @@ ggplot(somalia) +
   ) +
   geosom_theme()
 
-
 ```
 
+## Population data
 
+```{r}
+admin2 <- get_admin_shape("admin2")
 
+admin2_pop <- admin2  %>% 
+  left_join(
+    population_admin2_2026,
+    by = c("admin2pcod" = "admin2_pcode")
+  )
 
-
-
-
-
-
+head(admin2_pop, 10)
+```
 
