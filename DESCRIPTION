@@ -17,7 +17,9 @@ LazyData: true
 Depends: 
     R (>= 4.1.0)
 Imports:
-    sf
+    sf,
+    dplyr,
+    leaflet
 Suggests:
     dplyr,
     ggplot2,

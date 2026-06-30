@@ -33,7 +33,7 @@ remotes::install_github("axmedmaxamuud/geosom")
 ```
 ## Available Layers
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(geosom)
 library(ggplot2)
 library(dplyr)
@@ -53,11 +53,11 @@ states <- get_admin_shape("states")
 ## Get administrative names
 
 ```{r}
-head(get_admin_names("admin1"), 10)
+head(get_admin_names("admin1")[, 1:3], 10)
 ```
 
 ```{r}
-head(get_admin_names("admin2"), 10)
+head(get_admin_names("admin2")[, 1:3], 10)
 ```
 
 ## Basic map
@@ -90,6 +90,16 @@ admin2_pop <- admin2  %>%
     by = c("admin2pcod" = "admin2_pcode")
   )
 
-head(admin2_pop, 10)
+head(admin2_pop[, 2:10], 10)
+```
+
+## Interactive Web Map
+
+`geosom`can display interactive web map of administrative boundaries.
+
+```{r}
+library(geosom)
+
+geosom_leaflet()
 ```
 
